@@ -44,7 +44,7 @@
                 <br />
                 <input type="submit" value="SUBMIT" id="submit" />
             </form>
-            <a href="{% url 'diary:diary_list' %}"><button>go to LIST</button></a>
+            <a href="{% url 'diary:diary_detail' diary.id%}"><button>RETURN</button></a>
         </div>
     </body>
 </html>
