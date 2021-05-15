@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Junan's Diary</title>
+        <style>
+            .main {
+                width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: rgb(231 229 201);
+                padding: 15px;
+                border-radius: 10px;
+            }
+            button,
+            input {
+                border: transparent;
+                background-color: #aaaaff;
+                margin: 5px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            button:hover {
+                background-color: #51517a;
+                color: white;
+            }
+            input:hover {
+                background-color: #51517a;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <h1>{{diary.title}}</h1>
+            <h3>{{diary.content}}</h3>
+            <p>created {{diary.created_at}}</p>
+            <a href="{% url 'diary:diary_update' diary.id%}"><button>EDIT</button></a>
+            <form action="{% url 'diary:diary_delete' diary.id%}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="DELETE" />
+            </form>
+            <a href="{% url 'diary:diary_list' %}"><button>go to LIST</button></a>
+        </div>
+    </body>
+</html>
